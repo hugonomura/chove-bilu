@@ -31,8 +31,8 @@ class App(object):
     def main(self, reservatorio):
         tmpl = env.get_template('main.html')
         print reservatorio
-        res = 'reservatorio:Rio Claro'
-        #res = str(reservatorio)
+        #res = 'reservatorio:Rio Claro'
+        res = str(reservatorio)
         print '-----> ' + res
         nivel_perc_reservatorio = sabesp.get_volume_armazenado(res)
         
