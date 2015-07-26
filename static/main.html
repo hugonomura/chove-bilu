@@ -14,31 +14,43 @@
     <header class="navbar navbar-default navbar-fixed-top" id="myHeader">
     <img src="img/avatar_bilus-08.png">
     </header>
-    <section class="sec">
-    	<div>
-			<img src={{nivel_reservatorio}}>
-    	</div>
+    <section class="sec sec1">
+    	<center>
+    	   <img src="{{img_chovendo}}">
+           <p>{{texto_reservatorio}}</p>
+        </center>
+    </section>
+    <section class="sec2">
+        <center>
+            <img src="{{nivel_reservatorio}}">
+            <p>
+                Nivel do reservatório
+            </p>
+            <p class="description">
+                {{txt_nivel_reservatorio}}
+            </p>
+        </center>
     </section>
 
-    <section>
-    	<img src="img/tempo-01.png">
+    <section class="sec1">
+        <center>
+            <img src="{{nivel_chuva}}">
+            <p>
+                Nivel de Chuva
+            </p>
+            <p class="description">
+                {{txt_nivel_chuva}}
+            </p>
+        </center>
     </section>
 
-        <section>
-    	<img src="img/tempo-01.png">
-    </section>
-        <section>
-    	<img src="img/tempo-01.png">
-    </section>
-
-        <script src="js/jquery.js"></script>
-     	<script src="js/main.js"></script>
-     	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-
-    </body>
-    
-     <footer id="MyFooter" style="height:auto;">
-    	<img src="img/rodape-01.png" style="width=:200px; height:36px">
-		<img src="img/rodape-02.png" style="float:right; width:200px; height=50px; margin-bottom: 12px;">
+    <footer id="MyFooter" style="height:auto;">
+        <img src="img/rodape-01.png" style="width=:200px; height:36px">
+        <img src="img/rodape-02.png" style="float:right; width:200px; height=50px; margin-bottom: 12px;">
     </footer>
+    </body>
+    <script src="js/jquery.js"></script>
+    <script src="js/main.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    
  </html>    

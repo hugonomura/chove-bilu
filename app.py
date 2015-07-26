@@ -31,9 +31,31 @@ class App(object):
     @cherrypy.expose
     def main(self):
         tmpl = env.get_template('main.html')
-        nivel_perc_reservatorio = sabesp.get_volume_armazenado('reservatorio:Alto Cotia')
+        res = 'reservatorio:Alto Cotia'
+        nivel_perc_reservatorio = sabesp.get_volume_armazenado(res)
+        
+        texto_reservatorio = 'Tá chovendo'
+        img_chovendo = 'img/tempo-02.png'
+
+        #img_chovendo = 'img/tempo-01.png'
+        #texto_reservatorio = 'Não tá chovendo'
+
+        txt_nivel_reservatorio = nivel_perc_reservatorio + ' %'
+
+        acm_mes = sabesp.get_volume_armazenado(res)
+        media_historica = sabesp.get_media_historica(res)
+        nivel_chuva = int((float(acm_mes) / float(media_historica)) / 0.20)
+        if nivel_chuva > 5:
+            nivel_chuva = 5
+
+        txt_nivel_chuva = float(acm_mes) / float(media_historica)
 
         return tmpl.render(title = 'Hello World!',
-            nivel_reservatorio = 'img/escala_emotion-0' + str(int(float(nivel_perc_reservatorio) / 20)) + '.png')
+            nivel_reservatorio = 'img/escala_emotion-0' + str(int(float(nivel_perc_reservatorio) / 20)) + '.png',
+            img_chovendo = img_chovendo,
+            texto_reservatorio = texto_reservatorio.decode('utf-8'),
+            txt_nivel_reservatorio = txt_nivel_reservatorio.decode('utf-8'),
+            nivel_chuva = 'img/bilu_emotion-0' + str(nivel_chuva) + '.png',
+            txt_nivel_chuva = txt_nivel_chuva)
 
 cherrypy.quickstart(App(), '/', config.CHERRYPY_CONFIG)
