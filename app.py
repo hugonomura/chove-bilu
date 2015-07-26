@@ -55,7 +55,7 @@ class App(object):
             img_chovendo = img_chovendo,
             texto_reservatorio = texto_reservatorio.decode('utf-8'),
             txt_nivel_reservatorio = txt_nivel_reservatorio.decode('utf-8'),
-            nivel_chuva = 'img/bilu_emotion-0' + str(nivel_chuva) + '.png',
-            txt_nivel_chuva = txt_nivel_chuva)
+            nivel_chuva = 'img/bilu_emoticons-0' + str(nivel_chuva) + '.png',
+            txt_nivel_chuva = str(int(txt_nivel_chuva * 100)) + ' %')
 
 cherrypy.quickstart(App(), '/', config.CHERRYPY_CONFIG)

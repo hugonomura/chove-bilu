@@ -33,13 +33,13 @@ header {
 	font-size: 40pt;
 }
 
-.description {
-	font-size: 70pt;
-}
-
-.sec1{
+.sec1, .sec3{
 	background: #4F5ACC;
 	padding-top: 30vh;
+}
+
+.sec3 p {
+	font-size: 40pt;
 }
 
 .sec1 p {
@@ -54,4 +54,8 @@ section {
 
 .div2{
 	 
+}
+
+.description, p.description{
+	font-size: 70pt;
 }
