@@ -53,6 +53,13 @@ def criar_reservatorios():
             print r.hgetall('reservatorio:' + reservatorio['name'])
     
 
+def get_reservatorios():
+    reservatorios = r.keys('reservatorio:*')
+    if reservatorios:
+        return reservatorios
+    return ''
+
+
 def main():
     # criando reservatorios
 #    criar_reservatorios()
