@@ -1,2 +1,5 @@
 cherrypy
 jinja2
+redis
+json
+requests
