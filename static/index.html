@@ -14,7 +14,9 @@
         <div class="container">
             <h1>Hello!</h1>
         </div>
-
+        {% for reservatorio in reservatorios %}
+            <li id="{{reservatorio['id']}}">{{ reservatorio['nome'] }}</li>
+        {% endfor %}
         <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
         <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
         <script src="/js/app.js"></script>
