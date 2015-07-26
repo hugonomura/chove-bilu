@@ -36,11 +36,14 @@ class App(object):
         print '-----> ' + res
         nivel_perc_reservatorio = sabesp.get_volume_armazenado(res)
         
-        texto_reservatorio = 'Tá chovendo'
-        img_chovendo = 'img/tempo-02.png'
-
-        #img_chovendo = 'img/tempo-01.png'
-        #texto_reservatorio = 'Não tá chovendo'
+        acm_dia = sabesp.get_pluviometria_dia(res)
+        print '-----> ' + str(acm_dia)
+        if float(acm_dia) > 7.0:
+            texto_reservatorio = 'Tá chovendo'
+            img_chovendo = 'img/tempo-02.png'
+        else:
+            img_chovendo = 'img/tempo-01.png'
+            texto_reservatorio = 'Não tá chovendo'
 
         txt_nivel_reservatorio = nivel_perc_reservatorio + ' %'
 
