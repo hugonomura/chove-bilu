@@ -21,6 +21,8 @@ class App(object):
         for reservatorio in reservatorios:
             print '---> ' + sabesp.get_name(reservatorio)
             nome = sabesp.get_name(reservatorio)
+            if(nome == 'Alto Tietê'):
+                continue
             lista_reservatorios.append({'nome': nome.decode('utf-8'), 'id': reservatorio.decode('utf-8')})
 
 
@@ -32,7 +34,7 @@ class App(object):
         tmpl = env.get_template('main.html')
         print reservatorio
         #res = 'reservatorio:Rio Claro'
-        res = str(reservatorio)
+        res = str(reservatorio.decode('utf-8'))
         print '-----> ' + res
         nivel_perc_reservatorio = sabesp.get_volume_armazenado(res)
         

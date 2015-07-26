@@ -48,7 +48,7 @@ header {
 }
 
 section {
-	height: 100vh;
+	min-height: 100vh;
 	margin: auto 0;
 }
 
@@ -62,4 +62,9 @@ section {
 
 .description, p.description{
 	font-size: 70pt;
+}
+
+header img {
+	height: 70px;
+	margin-left: 3em;
 }
