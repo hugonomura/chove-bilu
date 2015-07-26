@@ -13,7 +13,7 @@ env = Environment(loader = FileSystemLoader('static'))
 class App(object):
     @cherrypy.expose
     def index(self):
-        tmpl = env.get_template('html.html')
+        tmpl = env.get_template('index.html')
         
         reservatorios = sabesp.get_reservatorios()
 
@@ -25,13 +25,15 @@ class App(object):
 
 
         return tmpl.render(title = 'Hello World!',
-            reservatorios = lista_reservatorios,
-            nivel_reservatorio = 'img/escala_emoticon-01.png')
+            reservatorios = lista_reservatorios)
 
     @cherrypy.expose
-    def main(self):
+    def main(self, reservatorio):
         tmpl = env.get_template('main.html')
-        res = 'reservatorio:Alto Cotia'
+        print reservatorio
+        res = 'reservatorio:Rio Claro'
+        #res = str(reservatorio)
+        print '-----> ' + res
         nivel_perc_reservatorio = sabesp.get_volume_armazenado(res)
         
         texto_reservatorio = 'Tá chovendo'
@@ -55,7 +57,7 @@ class App(object):
             img_chovendo = img_chovendo,
             texto_reservatorio = texto_reservatorio.decode('utf-8'),
             txt_nivel_reservatorio = txt_nivel_reservatorio.decode('utf-8'),
-            nivel_chuva = 'img/bilu_emotion-0' + str(nivel_chuva) + '.png',
-            txt_nivel_chuva = txt_nivel_chuva)
+            nivel_chuva = 'img/bilu_emoticons-0' + str(nivel_chuva) + '.png',
+            txt_nivel_chuva = str(int(txt_nivel_chuva * 100)) + ' %')
 
 cherrypy.quickstart(App(), '/', config.CHERRYPY_CONFIG)
