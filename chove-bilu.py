@@ -10,7 +10,7 @@ from crawlers import sabesp as sabesp
 
 env = Environment(loader = FileSystemLoader('static'))
 
-class App(object):
+class ChoveBilu(object):
     @cherrypy.expose
     def index(self):
         tmpl = env.get_template('index.html')
@@ -67,4 +67,4 @@ class App(object):
             txt_nivel_chuva = str(int(txt_nivel_chuva * 100)) + ' %')
 
 
-cherrypy.quickstart(App(), '/', config.CHERRYPY_CONFIG)
+cherrypy.quickstart(ChoveBilu(), '/', config.CHERRYPY_CONFIG)
