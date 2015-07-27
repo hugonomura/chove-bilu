@@ -26,8 +26,9 @@ class App(object):
             lista_reservatorios.append({'nome': nome.decode('utf-8'), 'id': reservatorio.decode('utf-8')})
 
 
-        return tmpl.render(title = 'Hello World!',
+        return tmpl.render(
             reservatorios = lista_reservatorios)
+
 
     @cherrypy.expose
     def main(self, reservatorio):
@@ -57,12 +58,13 @@ class App(object):
 
         txt_nivel_chuva = float(acm_mes) / float(media_historica)
 
-        return tmpl.render(title = 'Hello World!',
+        return tmpl.render(
             nivel_reservatorio = 'img/escala_emotion-0' + str(int(float(nivel_perc_reservatorio) / 20)) + '.png',
             img_chovendo = img_chovendo,
             texto_reservatorio = texto_reservatorio.decode('utf-8'),
             txt_nivel_reservatorio = txt_nivel_reservatorio.decode('utf-8'),
             nivel_chuva = 'img/bilu_emoticons-0' + str(nivel_chuva) + '.png',
             txt_nivel_chuva = str(int(txt_nivel_chuva * 100)) + ' %')
+
 
 cherrypy.quickstart(App(), '/', config.CHERRYPY_CONFIG)
