@@ -10,7 +10,7 @@ STATIC_DIR = path.join(APP_DIR, 'static')
 CHERRYPY_CONFIG = {
     'global': {
         'server.socket_host': '0.0.0.0',
-        'server.socket_port': 8080,
+        'server.socket_port': os.environ['$PORT'],
     },
     '/': {
         'tools.staticdir.root': STATIC_DIR,
