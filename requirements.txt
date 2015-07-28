@@ -3,4 +3,4 @@ jinja2
 redis
 simplejson
 requests
-urlparse
+
