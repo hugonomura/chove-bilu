@@ -1,5 +1,5 @@
 cherrypy
 jinja2
 redis
-json
+simplejson
 requests
