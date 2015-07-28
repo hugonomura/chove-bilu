@@ -5,8 +5,10 @@ import json
 import requests
 import redis
 import re
+import urlparse
 
-pool = redis.ConnectionPool(host='localhost', port=6379, db=0)
+url = urlparse.urlparse(os.environ.get('REDISCLOUD_URL'))
+pool = redis.ConnectionPool(host=url.hotsname, port=url.port, db=0)
 r = redis.Redis(connection_pool=pool)
 
 def get_key_value(reservatorio, key):
