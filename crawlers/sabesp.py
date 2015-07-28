@@ -6,6 +6,7 @@ import requests
 import redis
 import re
 import urlparse
+import os
 
 url = urlparse.urlparse(os.environ.get('REDISCLOUD_URL'))
 pool = redis.ConnectionPool(host=url.hotsname, port=url.port, db=0)
